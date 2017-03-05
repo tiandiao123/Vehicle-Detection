@@ -43,6 +43,17 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 ####2. Final choice of HOG parameters.
 
 I tried various combinations of parameters and found that `orientations=9`, `pixels_per_cell=(8,8)` and `cells_per_block=(2,2)` are the best choice in this project!
+Here is the code I used to get final features of my data:
+```
+feature_training_cars=[]
+for file in cars_train:
+    img=mpimg.imread(file)
+    img_features = single_img_features(img, color_space='RGB', spatial_size=(32,32),\
+                                       hist_bins=32, orient=9,\
+                                       pix_per_cell=8, cell_per_block=2, hog_channel=0,\
+                                       spatial_feat=True, hist_feat=True, hog_feat=True)
+    feature_training_cars.append(img_features)
+```
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 

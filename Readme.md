@@ -33,16 +33,16 @@ The first picture is the original car photo, and the second image is the hog ima
 ![png](output_images/hog_image_car0.png)
 
 
-Firstly, as for extracting hog features, I need to use two functions in my python file, one is 'get_hog_features(img, orient, pix_per_cell, cell_per_block ,vis=False, feature_vec=True)' from lesson_functions.py file, and another one is 'single_img_features' in my Ipython notebook.   
+Firstly, as for extracting hog features, I need to use two functions in my python file, one is `get_hog_features(img, orient, pix_per_cell, cell_per_block ,vis=False, feature_vec=True)` from lesson_functions.py file, and another one is `single_img_features` in my Ipython notebook.   
 
 I started by reading in all the `vehicle` and `non-vehicle` images so that I can get hog features in the next steps.
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
 
-####2. Explain how you settled on your final choice of HOG parameters.
+####2. Final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I tried various combinations of parameters and found that `orientations=9`, `pixels_per_cell=(8,8)` and `cells_per_block=(2,2)` are the best choice in this project!
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 

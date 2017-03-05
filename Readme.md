@@ -23,32 +23,22 @@ The goals / steps of this project are the following:
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
-## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
-###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
-
----
-###Writeup / README
-
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it!
 
 ###Histogram of Oriented Gradients (HOG)
 
-####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+####1. How I extracted HOG features from the training images.
+Before illustrating the details. let's look at how is hog_image looks like after applying the implemented algorithms:
+The first picture is the original car photo, and the second image is the hog image of the photo after applying implemented algorithms:
+![png](output_images/car0.png)
+![png](output_images/hog_image_car0.png)
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
 
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+Firstly, as for extracting hog features, I need to use two functions in my python file, one is 'get_hog_features(img, orient, pix_per_cell, cell_per_block ,vis=False, feature_vec=True)' from lesson_functions.py file, and another one is 'single_img_features' in my Ipython notebook.   
 
-![alt text][image1]
+I started by reading in all the `vehicle` and `non-vehicle` images so that I can get hog features in the next steps.
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
-
-
-![alt text][image2]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 

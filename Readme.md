@@ -56,7 +56,7 @@ for file in cars_train:
 ```
 
 ####3. Using SVM to train my data
-I combined all the train data sets(cars and not-cars) together. After that, I use `1` to represent the photo having cars, and the `0` represent the photo which don't have cars. Then I applied SVM Linear algorithm to train my data, and then used my testing data to test the accuracy of my model!
+I combined all the train data sets(cars and not-cars) together. After that, I use `1` to represent the photo having cars, and the `0` represent the photos which don't have cars. Then I applied SVM Linear algorithm to train my data, and then used my testing data to test the accuracy of my model!
 
 
 ###Sliding Window Search

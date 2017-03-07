@@ -90,11 +90,17 @@ windows = slide_window(image, x_start_stop=X_start_stop[i], y_start_stop=Y_start
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ![png](output_images/final_demo2.png)
+
 ![png](output_images/final_demo1.png)
+
 ![png](output_images/final_demo3.png)
+
 ![png](output_images/final_demo4.png)
+
 ![png](output_images/final_demo5.png)
+
 ![png](output_images/final_demo6.png)
+
 ---
 
 ### Video Implementation

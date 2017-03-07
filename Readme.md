@@ -85,16 +85,21 @@ windows = slide_window(image, x_start_stop=X_start_stop[i], y_start_stop=Y_start
                             hist_feat=hist_feat, hog_feat=hog_feat)      
 ```
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+####2. demonstration of pipeline
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![png](output_images/final_demo2.png)
+![png](output_images/final_demo1.png)
+![png](output_images/final_demo3.png)
+![png](output_images/final_demo4.png)
+![png](output_images/final_demo5.png)
+![png](output_images/final_demo6.png)
 ---
 
 ### Video Implementation
 
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
+####1. Video Link for the result of the project!
 Here's a [link to my video result](./project_video.mp4)
 
 
@@ -104,23 +109,11 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
-
----
 
 ###Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+####1. Problems / issues you faced in your implementation of this project.  
+The most difficult thing for this project is that to find appropriate windows for searching cars.  Even if I have a perfect svc model to predict cars, but I still need to spend so much time to work on finding a perfect scale and the size of the window to search cars. Also, since after picking the piece of the pictures, we usually need to resize the picture, so it may result in some noise for the svc model to predict! That's why I feel it is the most hard part for this project!
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+
 

@@ -31,6 +31,8 @@ Before illustrating the details. let's look at how is hog_image looks like after
 The first picture is the original car photo, and the second image is the hog image of the photo after applying implemented algorithms:
 ![png](output_images/car0.png)
 ![png](output_images/hog_image_car0.png)
+![png](output_images/car1.png)
+![png](output_images/hog_image_car1.png)
 
 
 Firstly, as for extracting hog features, I need to use two functions in my python file, one is `get_hog_features(img, orient, pix_per_cell, cell_per_block ,vis=False, feature_vec=True)` from lesson_functions.py file, and another one is `single_img_features` in my Ipython notebook.   

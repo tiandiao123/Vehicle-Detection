@@ -23,6 +23,8 @@ The goals / steps of this project are the following:
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
+### Here is a demo for my final result(still needs to be modified!)
+![gif](result_test.gif)
 
 ###Histogram of Oriented Gradients (HOG)
 

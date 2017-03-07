@@ -31,6 +31,7 @@ Before illustrating the details. let's look at how is hog_image looks like after
 The first picture is the original car photo, and the second image is the hog image of the photo after applying implemented algorithms:
 ![png](output_images/car0.png)
 ![png](output_images/hog_image_car0.png)
+
 ![png](output_images/car1.png)
 ![png](output_images/hog_image_car1.png)
 
@@ -63,11 +64,26 @@ I combined all the train data sets(cars and not-cars) together. After that, I us
 
 ###Sliding Window Search
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+####1. impelmentation of sliding window
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+This is the original picture shows that how I will search potential locations for cars. The general idea is that pick two or three kinds of windowa to slide along the photo,and resize the picture so that we can use our svc model to predict whether this piece of picture has a car. If it is, using hot_windows array to record the location. If it is not, just ignore it! Here is a picture showing the original search result.
 
-![alt text][image3]
+![png](output_images/sliding_window.png)
+
+The following is the code demo for search:
+```
+windows = slide_window(image, x_start_stop=X_start_stop[i], y_start_stop=Y_start_stop[i], 
+                            xy_window=XY_window[i], xy_overlap=XY_overlap[i])
+        
+        all_windows += [windows]        
+        
+        hot_windows +=  search_windows(image, windows, svc, X_scaler, color_space=color_space, 
+                            spatial_size=spatial_size, hist_bins=hist_bins, 
+                            orient=orient, pix_per_cell=pix_per_cell, 
+                            cell_per_block=cell_per_block, 
+                            hog_channel=hog_channel, spatial_feat=spatial_feat, 
+                            hist_feat=hist_feat, hog_feat=hog_feat)      
+```
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 

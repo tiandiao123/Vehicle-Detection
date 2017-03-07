@@ -1,1 +1,2 @@
-Please save your output images to this folder and include a description in your README of what each image shows.
+sliding_window.png: shows that the original search for potential cars using rectangles!
+

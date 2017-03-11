@@ -62,7 +62,20 @@ for file in cars_train:
 
 ####3. Using SVM to train my data
 I combined all the train data sets(cars and not-cars) together. After that, I use `1` to represent the photo having cars, and the `0` represent the photos which don't have cars. Then I applied SVM Linear algorithm to train my data, and then used my testing data to test the accuracy of my model!
+I used the following parameter's seeting to train my data:
+'''
+color_space = 'YCrCb'
+spatial_size = (32,32)
+hist_bins = 32
+orient = 9
+pix_per_cell = 8
+cell_per_block = 2
+hog_channel = 'ALL'
+spatial_feat = True
+hist_feat = True
+hog_feat = True
 
+'''
 
 ###Sliding Window Search
 
@@ -73,6 +86,8 @@ This is the original picture shows that how I will search potential locations fo
 ![png](output_images/sliding_window.png)
 
 The following is the code demo for search:
+As for the sliding window function, I set the window-size as 64, and the overlap ratio as 0.7, the reason is that using 0.7 as overlap can help me to find cars quickly(compared to lower ratio). Also, it is an appropriate size and overlap ratio to find the specific cars
+
 ```
 windows = slide_window(image, x_start_stop=X_start_stop[i], y_start_stop=Y_start_stop[i], 
                             xy_window=XY_window[i], xy_overlap=XY_overlap[i])
@@ -122,6 +137,6 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ####1. Problems / issues you faced in your implementation of this project.  
 The most difficult thing for this project is that to find appropriate windows for searching cars.  Even if I have a perfect svc model to predict cars, but I still need to spend so much time to work on finding a perfect scale and the size of the window to search cars. Also, since after picking the piece of the pictures, we usually need to resize the picture, so it may result in some noise for the svc model to predict! That's why I feel it is the most hard part for this project!
-
+Originally, the sliding_window falied to identify cars very correctly, and it is because I used wrong color-space 'RGB'. Also, I didn't normalize my data to fit my training data originally. Thus, after normlizing my data and changing my color space, then I get better performance!
 
 

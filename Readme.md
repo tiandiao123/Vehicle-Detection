@@ -63,7 +63,7 @@ for file in cars_train:
 ####3. Using SVM to train my data
 I combined all the train data sets(cars and not-cars) together. After that, I use `1` to represent the photo having cars, and the `0` represent the photos which don't have cars. Then I applied SVM Linear algorithm to train my data, and then used my testing data to test the accuracy of my model!
 I used the following parameter's seeting to train my data:
-'''
+```
 color_space = 'YCrCb'
 spatial_size = (32,32)
 hist_bins = 32
@@ -74,8 +74,7 @@ hog_channel = 'ALL'
 spatial_feat = True
 hist_feat = True
 hog_feat = True
-
-'''
+```
 
 ###Sliding Window Search
 

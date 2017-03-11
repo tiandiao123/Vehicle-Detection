@@ -75,7 +75,7 @@ spatial_feat = True
 hist_feat = True
 hog_feat = True
 ```
-when using svm to train this classifier, I used hog features, saptial features and hist features to train my model. I found that combining three features can get better training result. Also, setting larger color_space as 'YCrCb' can help identification of the cars become more correct!If so, the classifier will be more reliable, and will have better reliance when facing different kinds of situations in the next cars' vehicle!
+when using svm to train this classifier, I used hog features, saptial features and hist features to train my model. I found that combining three features can get better training result. Also, setting larger color_space as 'YCrCb' can help identification of the cars become more correct! If so, the classifier will be more reliable(since we have more features and larger feature size), and will have better reliance when facing different kinds of situations in the next cars' vehicle!
 ###Sliding Window Search
 
 ####1. impelmentation of sliding window

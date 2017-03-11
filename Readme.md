@@ -122,7 +122,7 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ### Video Implementation
 
 ####1. Video Link for the result of the project!
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./result.mp4)
 
 
 ####2. How I implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.

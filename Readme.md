@@ -26,11 +26,12 @@ The goals / steps of this project are the following:
 ### Here is a demo for my final result(still needs to be modified!)
 ![gif](result_test.gif)
 
-###Histogram of Oriented Gradients (HOG)
+### Histogram of Oriented Gradients (HOG)
 
-####1. How I extracted HOG features from the training images.
+#### 1. How I extracted HOG features from the training images.
 Before illustrating the details. let's look at how is hog_image looks like after applying the implemented algorithms:
 The first picture is the original car photo, and the second image is the hog image of the photo after applying implemented algorithms:
+
 ![png](output_images/car0.png)
 ![png](output_images/hog_image_car0.png)
 
@@ -45,7 +46,7 @@ I started by reading in all the `vehicle` and `non-vehicle` images so that I can
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
 
-####2. Final choice of HOG parameters.
+#### 2. Final choice of HOG parameters.
 
 I tried various combinations of parameters and found that `orientations=9`, `pixels_per_cell=(8,8)` and `cells_per_block=(2,2)` are the best choice in this project!
 Here is the code I used to get final features of my data:
@@ -60,7 +61,7 @@ for file in cars_train:
     feature_training_cars.append(img_features)
 ```
 
-####3. Using SVM to train my data
+#### 3. Using SVM to train my data
 I combined all the train data sets(cars and not-cars) together. After that, I use `1` to represent the photo having cars, and the `0` represent the photos which don't have cars. Then I applied SVM Linear algorithm to train my data, and then used my testing data to test the accuracy of my model!
 I used the following parameter's seeting to train my data:
 ```
@@ -76,9 +77,9 @@ hist_feat = True
 hog_feat = True
 ```
 when using svm to train this classifier, I used hog features, saptial features and hist features to train my model. I found that combining three features can get better training result. Also, setting larger color_space as 'YCrCb' can help identification of the cars become more correct! If so, the classifier will be more reliable(since we have more features and larger feature size), and will have better reliance when facing different kinds of situations in the next cars' vehicle!
-###Sliding Window Search
+### Sliding Window Search
 
-####1. impelmentation of sliding window
+#### 1. impelmentation of sliding window
 
 This is the original picture shows that how I will search potential locations for cars. The general idea is that pick two or three kinds of windowa to slide along the photo,and resize the picture so that we can use our svc model to predict whether this piece of picture has a car. If it is, using hot_windows array to record the location. If it is not, just ignore it! Here is a picture showing the original search result.
 
@@ -101,7 +102,7 @@ windows = slide_window(image, x_start_stop=X_start_stop[i], y_start_stop=Y_start
                             hist_feat=hist_feat, hog_feat=hog_feat)      
 ```
 
-####2. demonstration of pipeline
+#### 2. demonstration of pipeline
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
@@ -121,20 +122,20 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 
 ### Video Implementation
 
-####1. Video Link for the result of the project!
+#### 1. Video Link for the result of the project!
 Here's a [link to my video result](./result.mp4)
 
 
-####2. How I implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
+#### 2. How I implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
 
-###Discussion
+### Discussion
 
-####1. Problems / issues you faced in your implementation of this project.  
+#### 1. Problems / issues you faced in your implementation of this project.  
 The most difficult thing for this project is that to find appropriate windows for searching cars.  Even if I have a perfect svc model to predict cars, but I still need to spend so much time to work on finding a perfect scale and the size of the window to search cars. Also, since after picking the piece of the pictures, we usually need to resize the picture, so it may result in some noise for the svc model to predict! That's why I feel it is the most hard part for this project!
 Originally, the sliding_window falied to identify cars very correctly, and it is because I used wrong color-space 'RGB'. Also, I didn't normalize my data to fit my training data originally. Thus, after normlizing my data and changing my color space, then I get better performance!
 
